@@ -640,5 +640,31 @@ footer {
     }
 }
 
+/* --- Stilizacija društvenih mreža (Footer) --- */
+
+.social-icons {
+    margin-top: 10px;
+    display: flex;
+    gap: 15px; /* Razmak između ikona */
+    justify-content: flex-start; /* Poravnava levo na desktopu */
+}
+.social-icons a {
+    color: var(--secondary-color); /* Bela boja ikone */
+    font-size: 1.5em; /* Veličina ikone */
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+.social-icons a:hover {
+    color: #e0e0e0; /* Svetlo siva na hover */
+    transform: scale(1.1);
+}
+
+/* KOREKCIJA ZA MOBILNI PRIKAZ IKONA */
+@media (max-width: 768px) {
+    .social-icons {
+        justify-content: center; /* Centriranje ikona na mobilnom */
+        margin-bottom: 20px; /* Dodatni razmak */
+    }
+}
 
 
