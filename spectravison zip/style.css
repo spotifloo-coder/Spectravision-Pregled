@@ -4,7 +4,7 @@
  * #FEFEF (Skoro bela) - secondary-color / white
  */
 :root {
-    --primary-color: #00183A;
+    --primary-color: #192b4f;
     --secondary-color: #FEFEFE;
     --text-dark: #000;
     --text-light: #FFF;
@@ -639,5 +639,6 @@ footer {
         margin: 10px 0;
     }
 }
+
 
 
