@@ -438,7 +438,8 @@ footer {
 
 /* KOREKCIJA ZA MOBILE (Ekran širine 768px i manji) */
 @media (max-width: 768px) {
-    
+}
+
     /* 1. Smanjite visinu celog kontejnera na mobilnom */
     .brand-gallery-section {
         height: 100px; /* Smanjite visinu sa 150px na 100px */
@@ -464,7 +465,7 @@ footer {
     .brand-slider-track {
         animation: scroll-left 50s linear infinite; /* Povećano trajanje sa 40s na 50s */
     }
-}
+    
     main {
         padding-top: 60px; 
     }
@@ -580,4 +581,5 @@ footer {
     /* Preuzima stilove iz .btn-primary */
     margin-top: 10px; /* Mali razmak od forme */
 }
+
 
