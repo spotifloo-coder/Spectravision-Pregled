@@ -204,7 +204,7 @@ main {
     font-size: 2.5em;
     padding: 15px 30px;
     position: absolute;
-    bottom: 30px;
+    bottom: 15px;
     width: 100%;
     text-align: center;
     background-color: rgba(0, 24, 58, 0);
@@ -775,5 +775,6 @@ footer {
         display: none; /* Sakrij separator liniju na mobilnom, izgleda čistije */
     }
 }
+
 
 
