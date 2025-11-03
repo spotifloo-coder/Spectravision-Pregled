@@ -422,6 +422,49 @@ footer {
 /* RESPONSIVNI DIZAJN */
 @media (max-width: 768px) {
     /* Manji padding-top za glavni sadržaj na mobilnim uređajima */
+    /* --- Brand Gallery Sekcija Korekcija za Mobilne Uređaje --- */
+
+/* Standardni stilovi iz vašeg koda: */
+.brand-logo {
+    min-width: 10%; /* Zauzima 10% širine originalnog skupa (10 logoa) */
+    height: 100%;
+    /* ... ostali stilovi ... */
+}
+
+.brand-logo img {
+    max-height: 80px; /* Maksimalna visina na desktopu */
+    /* ... ostali stilovi ... */
+}
+
+/* KOREKCIJA ZA MOBILE (Ekran širine 768px i manji) */
+@media (max-width: 768px) {
+    
+    /* 1. Smanjite visinu celog kontejnera na mobilnom */
+    .brand-gallery-section {
+        height: 100px; /* Smanjite visinu sa 150px na 100px */
+    }
+
+    /* 2. Smanjite minimalnu širinu za svaki logo */
+    /* Sada će svaki logo uzeti 15% (umesto 10%), što znači da će se prikazivati
+       manje logoa odjednom, ali će biti manji i imati više prostora.
+       Eksperimentišite sa ovom vrednošću (12%, 15%...)
+    */
+    .brand-logo {
+        min-width: 15%; 
+        padding: 0 10px; /* Malo smanjite padding */
+    }
+
+    /* 3. Smanjite veličinu slike (logoa) */
+    .brand-logo img {
+        max-height: 60px; /* Smanjite maksimalnu visinu slike na 60px */
+    }
+    
+    /* 4. Podesite brzinu animacije (opciono) */
+    /* Ako je na manjem ekranu skrol prebrz, usporite animaciju: */
+    .brand-slider-track {
+        animation: scroll-left 50s linear infinite; /* Povećano trajanje sa 40s na 50s */
+    }
+}
     main {
         padding-top: 60px; 
     }
@@ -537,3 +580,4 @@ footer {
     /* Preuzima stilove iz .btn-primary */
     margin-top: 10px; /* Mali razmak od forme */
 }
+
