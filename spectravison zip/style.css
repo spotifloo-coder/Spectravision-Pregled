@@ -667,4 +667,113 @@ footer {
     }
 }
 
+/* --- FOOTER KOREKCIJE --- */
+
+.footer-bottom {
+    /* Flex na desktopu za raspored u liniji */
+    display: flex;
+    justify-content: center; /* Centriranje sadržaja */
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Separator iznad dna */
+    margin-top: 20px;
+}
+
+.footer-legal-links a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 0.9em;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.footer-legal-links span {
+    color: var(--secondary-color);
+
+}
+
+#current-year{
+    margin-left: 2px;
+    margin-right: 3px;
+}
+
+.footer-legal-links a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.copyright {
+    /* Prethodni stilovi su OK, ali dodajemo flex */
+    display: flex;
+    align-items: center;
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 5px; /* Manji razmak od pravnih linkova */
+    word-spacing: 1px;
+    margin-left: 5px;
+}
+
+.copyright a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.design-credit {
+    margin-left: 0px;
+}
+
+.separator {
+    margin: 0 5px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* --- RESPONSIVE KOREKCIJA ZA FOOTER --- */
+@media (max-width: 768px) {
+    
+    .footer-content {
+        /* Osigurava da se svi delovi futera (kontakt, radno vreme...) slažu jedan ispod drugog */
+        flex-direction: column; 
+
+    }
+    
+    .footer-content > div {
+        /* Centriranje teksta za svaki blok na mobilnom */
+        text-align: center; 
+        margin-bottom: 20px;
+    }
+    
+    .social-icons {
+        /* Osigurava da su ikone centrirane na mobilnom */
+        justify-content: center; 
+    }
+    
+    .footer-bottom {
+        /* Pravni linkovi i copyright se slažu jedan ispod drugog */
+        flex-direction: column; 
+        text-align: center;
+    }
+
+    .footer-legal-links {
+        /* Svi pravni linkovi u liniji, centrirano */
+        margin-bottom: 10px; 
+    }
+
+    .copyright {
+        /* Centriranje celog bloka na mobilnom */
+        flex-direction: column;
+        line-height: 1.5;
+    }
+    
+    /* Uklanjanje separatora ili postavljanje ispod teksta na mobilnom */
+    .separator, .design-credit {
+        margin: 5px 0;
+    }
+    .separator {
+        display: none; /* Sakrij separator liniju na mobilnom, izgleda čistije */
+    }
+}
+
 
