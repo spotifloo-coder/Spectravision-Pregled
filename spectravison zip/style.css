@@ -519,7 +519,7 @@ footer {
 }
 
 .footer-content {
-    display: flex;
+    display: flex; /* OVO JE KLJUČNO ZA DESKTOP VERZIJU */
     justify-content: space-around;
     text-align: left;
     max-width: 1200px;
@@ -832,29 +832,81 @@ footer a:hover {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
         gap: 15px;
         margin-top: 30px;
+    }
     .map-section iframe {
         height: 350px;
     }
     
-    /* FOOTER */
-    .footer-content {
-        flex-direction: column; 
+    /* Footer */
+    footer {
+        padding: 30px 15px 15px; 
     }
-    .footer-content > div {
-        text-align: center; 
+
+    .footer-content {
+        /* UKLANJAMO FLEXBOX NA MOBILNOM */
+        display: block; 
+        text-align: center;
         margin-bottom: 20px;
     }
+
+    /* Osigurava da svaki pod-div bude BLOCK element i zauzme punu širinu, sa razmakom */
+    .footer-content > div {
+        display: block; /* OVO JE KLJUČNO */
+        width: 100%;
+        margin-bottom: 30px; /* Razmak između sekcija (Kontakt, Radno vreme, Social) */
+        padding: 0 10px; 
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    /* Uklanjanje razmaka ispod poslednjeg bloka */
+    .footer-content > div:last-child {
+        margin-bottom: 0;
+    }
+
+    .footer-content h3 {
+        text-align: center; 
+    }
+    
+    /* Kontakt i Radno Vreme tekst/linkovi */
+    footer p,
+    footer a {
+        display: block; 
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    
+    /* Centriranje ikona */
     .social-icons {
+        display: flex;
         justify-content: center;
+        margin-top: 10px;
     }
+
+    /* Footer Bottom */
     .footer-bottom {
-        flex-direction: column; 
-        align-items: center; 
+        /* I ovde ga forsiramo na blok */
+        display: block; 
+        text-align: center;
+        padding-top: 15px;
     }
+    
+    .footer-legal-links {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .separator {
+        display: none; 
+    }
+    
     .copyright {
-        flex-direction: column;
+        display: block; 
+        margin-top: 5px;
+        line-height: 1.5;
     }
-}}
+}
+
 
 
 
