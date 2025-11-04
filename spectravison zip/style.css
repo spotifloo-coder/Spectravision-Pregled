@@ -223,6 +223,10 @@ main {
     filter: brightness(0.7); /* Još malo potamnjena slika za kontrasniji tekst/streice */
 }
 
+.slika2{
+    margin-top: 100px;
+}
+
 /* Navigacione strelice (Prev & Next) */
 .prev, .next {
     cursor: pointer;
