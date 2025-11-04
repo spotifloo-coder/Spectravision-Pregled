@@ -84,6 +84,15 @@ header {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
+/*
+ * Fiks: Kompenzacija za fiksnu navigaciju (header)
+ * Sprečava da fiksni header preklopi sekciju kada se klikne na anker link.
+ */
+section[id] {
+    /* Stvara prostor IZNAD sekcije koji je kompenzacija za gornju marginu */
+    scroll-margin-top: 100px; /* Podesite ovu vrednost tako da odgovara visini Vašeg fiksnog headera + mali luft */
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;

@@ -214,19 +214,22 @@ const navSlide = () => {
 });
 
 // =======================================================
-// 5. Aktivacija Nav Linkova pri Skrolovanju (NOVI KOD)
+// 5. Aktivacija Nav Linkova pri Skrolovanju (AŽURIRANI KOD)
 // =======================================================
 
-// 5.1 Dohvatanje svih sekcija koje imaju ID (ankere) i svih navigacionih linkova
 const sections = document.querySelectorAll('main section[id]');
 const navLinks = document.querySelectorAll('.nav-links li a');
 
+// Visina Vašeg headera (cca. 80-100px) + margina
+const headerHeight = 100; 
+
 const observerOptions = {
     root: null, // Gleda se vidno polje (viewport)
-    rootMargin: '0px',
-    // Procenti kada se sekcija smatra aktivnom: 
-    // Threshold 0.3 znači da je 30% sekcije vidljivo da bi se aktivirala.
-    threshold: 0.3 
+    // Postavlja aktivnu zonu: -100px sa vrha, -X% sa dna (npr. -40% od visine)
+    // Ovo efektivno stvara "prozor" za aktivaciju bliže centru.
+    // '100px' sa vrha kompenzuje fiksni header, a '40%' sa dna sprečava aktivaciju sledeće sekcije prerano.
+    rootMargin: `-${headerHeight}px 0px -40% 0px`, 
+    threshold: 0 // Ne treba nam threshold ako koristimo rootMargin
 };
 
 // Funkcija koja se poziva kada sekcija uđe/izađe iz vidnog polja
@@ -243,9 +246,9 @@ const sectionObserver = new IntersectionObserver((entries, observer) => {
         };
 
         if (entry.isIntersecting) {
-            // Ako sekcija ulazi u vidno polje
+            // Ako sekcija ulazi u vidno polje unutar definisanog 'rootMargin' prozora
             
-            // 1. Ukloni active klasu sa SVIH (osim Naslovna, koja je 'index.html')
+            // 1. Ukloni active klasu sa SVIH (da izbegne duple aktivacije)
             removeActive();
 
             // 2. Dodaj active klasu trenutnom linku
@@ -253,19 +256,16 @@ const sectionObserver = new IntersectionObserver((entries, observer) => {
                 currentLink.classList.add('active');
             }
 
-        } else {
-            // Ako sekcija izlazi iz vidnog polja (opcionalno, ali pomaže u čišćenju)
-            // Uklanja active klasu sa linka kada sekcija izađe (tj. kada uđe sledeća)
-            if (currentLink) {
-                currentLink.classList.remove('active');
-            }
         }
 
-        // Dodatni Fiks: Proverava da li je korisnik skrolovan do samog vrha stranice.
-        // Ako jeste, aktiviraj Naslovnu
-        if (window.scrollY < 100) { 
+        // Fiks: Proverava da li je korisnik skrolovan do samog vrha stranice.
+        if (window.scrollY < headerHeight + 10) { // Mala tolerancija
             removeActive();
-            document.querySelector('.nav-links a[href="index.html"]').classList.add('active');
+            // Traži link ka Naslovnoj (index.html ili '/')
+            const homeLink = document.querySelector('.nav-links a[href="index.html"]') || document.querySelector('.nav-links a[href="/"]');
+            if (homeLink) {
+                homeLink.classList.add('active');
+            }
         }
     });
 }, observerOptions);
