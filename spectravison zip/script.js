@@ -1,32 +1,58 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // =======================================================
-    // 1. Logika za Burger Meni (navSlide)
-    // =======================================================
-    const navSlide = () => {
-        const burger = document.querySelector('.burger');
-        const nav = document.querySelector('.nav-links');
-        const navLinks = document.querySelectorAll('.nav-links li');
+// 1. Logika za Burger Meni (navSlide)
+// =======================================================
+const navSlide = () => {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li a'); // Dodato 'a' da dohvatimo same linkove
 
-        if (burger && nav) {
-            burger.addEventListener('click', () => {
-                // Toggle Nav
-                nav.classList.toggle('nav-active');
+    if (burger && nav) {
+        
+        // Funkcija za zatvaranje menija
+        const closeNav = () => {
+            if (nav.classList.contains('nav-active')) {
+                // Ukloni aktivnu klasu (zatvara meni)
+                nav.classList.remove('nav-active');
+                burger.classList.remove('toggle');
 
-                // Animiraj linkove
-                navLinks.forEach((link, index) => {
-                    if (nav.classList.contains('nav-active')) {
-                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-                    } else {
-                        link.style.animation = ``; // Uklonite animaciju pri zatvaranju
-                    }
+                // Ukloni animaciju sa linkova
+                document.querySelectorAll('.nav-links li').forEach(link => {
+                    link.style.animation = ''; 
                 });
+            }
+        };
 
-                // Animacija Burger ikone
-                burger.classList.toggle('toggle');
+        // 1. Klik na Burger Ikonu (otvara/zatvara)
+        burger.addEventListener('click', () => {
+            // Toggle Nav
+            nav.classList.toggle('nav-active');
+
+            // Animiraj linkove (ostavljamo stari kod za animaciju)
+            document.querySelectorAll('.nav-links li').forEach((link, index) => {
+                if (nav.classList.contains('nav-active')) {
+                    link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                } else {
+                    link.style.animation = ``; // Uklonite animaciju pri zatvaranju
+                }
             });
-        }
+
+            // Animacija Burger ikone
+            burger.classList.toggle('toggle');
+        });
+
+
+        // 2. Klik na Link unutar menija (zatvara nakon navigacije)
+        // Sada iteriramo kroz sve 'a' tagove unutar menija
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Pozivamo funkciju za zatvaranje menija
+                closeNav();
+            });
+        });
     }
+}
 
 
     // =======================================================
