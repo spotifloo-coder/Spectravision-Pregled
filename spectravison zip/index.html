@@ -11,18 +11,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
         <nav class="navbar">
             <div class="logo">
-                
                 <a href="index.html"><img src="slike/mainlogo.jpg" alt="logo firme" height="80px" width="120px"></a>
-                
             </div>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Naslovna</a></li>
@@ -30,9 +26,9 @@
                 <li><a href="#klijenti">Klijenti</a></li>
                 <li><a href="#kolekcija">Nova Kolekcija</a></li>
                 <li><a href="#ponuda">Ponuda</a></li>
-                <li><a href="#" id="pitaj-eksperta-btn" class="expert-link">Pitaj Eksperta (Edukacija)</a></li>
+                <li><a href="#" id="pitaj-eksperta-btn" class="expert-link">Pitaj Eksperta</a></li>
                 <li><a href="#faq">FAQ</a></li>
-                <li><a href="#zakazivanje" class="btn-primary">Zakazivanje</a></li>
+                <li><a href="#zakazivanje" id="dugme_zakazivanje">Zakazivanje</a></li>
             </ul>
             <div class="burger">
                 <div class="line1"></div>
@@ -43,69 +39,82 @@
     </header>
 
     <main>
-        <section class="hero-slider-section">
+        
+        <section class="hero-section">
             <h1 class="visually-hidden">Spectra Vision - Vrhunska Oftalmologija u Požarevcu</h1>
-            <div class="slider-container">
-                <div class="mySlides fade">
-                    <img src="slike/naocare5.jpg" alt="Elegantne naočare u Spectra Vision-u" style="width:100%">
-                    <div class="text">Dobrodošli u svet savršene vizije.</div>
-                </div>
-                <div class="mySlides fade">
-                    <img src="slike/naocare6.jpg" alt="Moderna ordinacija oftalmologije" style="width:100%">
-                    <div class="text">Pregled vida po najvišim standardima.</div>
-                </div>
-                <div class="mySlides fade">
-                    <img src="slike/naocare7.jpg" alt="Nova kolekcija trendi ramova" style="width:100%">
-                    <div class="text">Nova kolekcija ramova</div>
-                </div>
+            
+            <div class="slider-wrapper">
+                <div class="slider-container">
+                    <div class="mySlides fade">
+                        <img src="slike/naocare5.jpg" alt="Elegantne naočare u Spectra Vision-u">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="slike/naocare6.jpg" alt="Moderna ordinacija oftalmologije">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="slike/naocare7.jpg" alt="Nova kolekcija trendi ramova">
+                    </div>
 
-                <a class="prev" onclick="plusSlides(-1)">❮</a>
-                <a class="next" onclick="plusSlides(1)">❯</a>
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+                </div>
+                
+                <div class="dots-container">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
             </div>
-            <div style="text-align:center">
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
+            
+            <div class="hero-description container">
+                <h2>Spectra Vision: Vaš Pogled na Budućnost</h2>
+                <p>
+                    U samom srcu Požarevca, spajamo **vrhunsku oftalmološku dijagnostiku** sa **kraljevskim dizajnom** vaših novih naočara. 
+                    Nudimo najnovije kolekcije ekskluzivnih brendova i garanciju na svaki pregled. 
+                    **Preciznost, stil i lična briga** za vaš vid su naši prioriteti.
+                </p>
+                <div class="hero-actions">
+                    <a href="#kolekcija" class="btn-primary">Istraži Kolekciju</a>
+                    <a href="#zakazivanje" class="btn-secondary">Zakaži Pregled</a>
+                </div>
             </div>
+            
         </section>
 
         <section id="zakazivanje" class="info-section primary-bg">
             <div class="container center-text">
                 <h2 class="white-text">Zakažite Vaš Pregled Danas!</h2>
                 <p class="white-text">Koristite direktan poziv za brzo zakazivanje ili nas posetite na adresi.</p>
-                <!-- <p class="white-text secondary-info">**NAPOMENA:** Klikom na sekciju 'Pitaj Eksperta', otvoriće Vam se e-mail forma za slanje pitanja. Najčešća pitanja koristimo za unapređenje ove FAQ sekcije!</p> -->
-                <a href="tel:+381692200122" class="btn-secondary">Pozovite: +381 69 2200122</a>
+                <a href="tel:+381692200122" class="btn-primary">Pozovite: +381 69 2200122</a>
             </div>
         </section>
 
         <section class="brand-gallery-section">
-    <div class="container-full-width">
-        <h2 class="visually-hidden">Brendovi naočara u ponudi</h2>
-        <div class="brand-slider-track">
-            <div class="brand-logo"><img src="slike/gucci_logo.jpg" alt="Logo Brend 1"></div>
-            <div class="brand-logo"><img src="slike/chanel_logo.jpg" alt="Logo Brend 2"></div>
-            <div class="brand-logo"><img src="slike/armani_logo.jpg" alt="Logo Brend 3"></div>
-            <div class="brand-logo"><img src="slike/ray_ban_logo.jpg" alt="Logo Brend 4"></div>
-            <div class="brand-logo"><img src="slike/lacoste_logo.jpg" alt="Logo Brend 5"></div>
-            <div class="brand-logo"><img src="slike/burberry_logo.jpg" alt="Logo Brend 6"></div>
-            <div class="brand-logo"><img src="slike/calvin_klein_logo.jpg" alt="Logo Brend 7"></div>
-            <div class="brand-logo"><img src="slike/ralph_lauren_logo.jpg" alt="Logo Brend 8"></div>
-            <div class="brand-logo"><img src="slike/prada_logo.jpg" alt="Logo Brend 9"></div>
-            <div class="brand-logo"><img src="slike/adidas_logo.jpg" alt="Logo Brend 10"></div>
+            <h2 class="visually-hidden">Brendovi naočara u ponudi</h2>
+            <div class="brand-slider-track">
+                <div class="brand-logo"><img src="slike/gucci_logo.jpg" alt="Logo Brend 1"></div>
+                <div class="brand-logo"><img src="slike/chanel_logo.jpg" alt="Logo Brend 2"></div>
+                <div class="brand-logo"><img src="slike/armani_logo.jpg" alt="Logo Brend 3"></div>
+                <div class="brand-logo"><img src="slike/ray_ban_logo.jpg" alt="Logo Brend 4"></div>
+                <div class="brand-logo"><img src="slike/lacoste_logo.jpg" alt="Logo Brend 5"></div>
+                <div class="brand-logo"><img src="slike/burberry_logo.jpg" alt="Logo Brend 6"></div>
+                <div class="brand-logo"><img src="slike/calvin_klein_logo.jpg" alt="Logo Brend 7"></div>
+                <div class="brand-logo"><img src="slike/ralph_lauren_logo.jpg" alt="Logo Brend 8"></div>
+                <div class="brand-logo"><img src="slike/prada_logo.jpg" alt="Logo Brend 9"></div>
+                <div class="brand-logo"><img src="slike/adidas_logo.jpg" alt="Logo Brend 10"></div>
 
-            <div class="brand-logo"><img src="slike/gucci_logo.jpg" alt="Logo Brend 1"></div>
-            <div class="brand-logo"><img src="slike/chanel_logo.jpg" alt="Logo Brend 2"></div>
-            <div class="brand-logo"><img src="slike/armani_logo.jpg" alt="Logo Brend 3"></div>
-            <div class="brand-logo"><img src="slike/ray_ban_logo.jpg" alt="Logo Brend 4"></div>
-            <div class="brand-logo"><img src="slike/lacoste_logo.jpg" alt="Logo Brend 5"></div>
-            <div class="brand-logo"><img src="slike/burberry_logo.jpg" alt="Logo Brend 6"></div>
-            <div class="brand-logo"><img src="slike/calvin_klein_logo.jpg" alt="Logo Brend 7"></div>
-            <div class="brand-logo"><img src="slike/ralph_lauren_logo.jpg" alt="Logo Brend 8"></div>
-            <div class="brand-logo"><img src="slike/prada_logo.jpg" alt="Logo Brend 9"></div>
-            <div class="brand-logo"><img src="slike/adidas_logo.jpg" alt="Logo Brend 10"></div>
-        </div>
-    </div>
-</section>
+                <div class="brand-logo"><img src="slike/gucci_logo.jpg" alt="Logo Brend 1"></div>
+                <div class="brand-logo"><img src="slike/chanel_logo.jpg" alt="Logo Brend 2"></div>
+                <div class="brand-logo"><img src="slike/armani_logo.jpg" alt="Logo Brend 3"></div>
+                <div class="brand-logo"><img src="slike/ray_ban_logo.jpg" alt="Logo Brend 4"></div>
+                <div class="brand-logo"><img src="slike/lacoste_logo.jpg" alt="Logo Brend 5"></div>
+                <div class="brand-logo"><img src="slike/burberry_logo.jpg" alt="Logo Brend 6"></div>
+                <div class="brand-logo"><img src="slike/calvin_klein_logo.jpg" alt="Logo Brend 7"></div>
+                <div class="brand-logo"><img src="slike/ralph_lauren_logo.jpg" alt="Logo Brend 8"></div>
+                <div class="brand-logo"><img src="slike/prada_logo.jpg" alt="Logo Brend 9"></div>
+                <div class="brand-logo"><img src="slike/adidas_logo.jpg" alt="Logo Brend 10"></div>
+            </div>
+        </section>
 
         <section id="o-nama" class="content-section white-bg">
             <div class="container">
@@ -151,15 +160,15 @@
                 <h2 class="white-text center-text">Iskustva Zadovoljnih Klijenata 💬</h2>
                 <blockquote class="testimonial">
                     <p>"Pregled vida se ne naplaćuje, niti je uslovljen obaveznom kupovinom naočara. Osoblje je veoma ljubazno, a izbor ramova i stakala je zaista odličan i pažljivo odabran. U drugim radnjama sam morao da zakazujem pregled vida, platim i čekam, dok ovde sve ide brzo i jednostavno. Radnja se nalazi u centru grada i sarađuje sa sindikatima. Sve pohvale!"</p>
-                    <footer>- Zoran Radulović, Požarevac</footer>
+                    <footer class="ime_testemonial">- Zoran Radulović, Požarevac</footer>
                 </blockquote>
                 <blockquote class="testimonial">
                     <p>"Posvećenost poslu je zaista impresivna, a znanje na visokom nivou. Želim vam puno uspeha u daljem radu i mnogo sreće!"</p>
-                    <footer>- Slađana Nikolić, Kladovo</footer>
+                    <footer class="ime_testemonial">- Slađana Nikolić, Kladovo</footer>
                 </blockquote>
                 <blockquote class="testimonial">
                     <p>"Profesionalno i ljubazno osoblje. Ponuda u radnji je odlična i svako može pronaći ono što želi. Sve preporuke."</p>
-                    <footer>- Sandra S. Beograd</footer>
+                    <footer class="ime_testemonial">- Sandra S. Beograd</footer>
                 </blockquote>
             </div>
         </section>
@@ -184,17 +193,15 @@
 
         <section id="lokacija" class="map-section">
             <h2 class="visually-hidden">Naša Lokacija u Požarevcu</h2>
-            <div class="container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2839.9202222499334!2d21.180960976795077!3d44.619105989425655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4750ef8058c385b7%3A0x5befad66ac3d5d2!2sSPECTRA%20VISION%20OPTICS!5e0!3m2!1sen!2srs!4v1762180910113!5m2!1sen!2srs" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <p class="map-address">Posetite nas: **Lole Ribara 1, 12000 Požarevac, Srbija**.</p>
-            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2839.9202222499334!2d21.180960976795077!3d44.619105989425655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4750ef8058c385b7%3A0x5befad66ac3d5d2!2sSPECTRA%20VISION%20OPTICS!5e0!3m2!1sen!2srs!4v1762180910113!5m2!1sen!2srs" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <p class="map-address">Posetite nas: **Lole Ribara 1, 12000 Požarevac, Srbija**.</p>
         </section>
         
-   </main>
-    
+    </main>
+    
     <div id="expert-modal" class="modal">
         <div class="modal-content">
-            <span class="close-btn">&times;</span>
+            <span class="close-btn">×</span>
             <h3>Pitaj Eksperta (Edukacija) 🧠</h3>
             <p>Postavite nam pitanje o oftalmologiji ili izradi ramova. Odgovori se šalju direktno na naš e-mail!</p>
             
@@ -219,62 +226,61 @@
             <p class="modal-note">Naš tim će Vam odgovoriti u najkraćem roku.</p>
         </div>
     </div>
-<footer>
-    <div class="container">
-        <div class="footer-content">
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                
+                <div>
+                    <h3>Kontaktirajte nas</h3>
+                    <p>
+                        <a href="tel:+381692200122"><i class="fas fa-phone"></i> +381 69 2200122</a><br>
+                        <a href="mailto:office@spectravision.rs"><i class="fas fa-envelope"></i> office@spectravision.rs</a><br>
+                        <i class="fas fa-map-marker-alt"></i> Lole Ribara 1, 12000 Požarevac
+                    </p>
+                </div>
+
+                <div>
+                    <h3>Radno vreme</h3>
+                    <p>
+                        Pon - Sub: 08:00 - 20:00<br>
+                        Nedelja: Zatvoreno
+                    </p>
+                </div>
+
+                <div class="social-links">
+                    <h3>Pratite nas</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=61580311302053&ref=pl_edit_xav_ig_profile_page_web#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        
+                        <a href="https://www.instagram.com/spectravisionoptics" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
             
-            <div>
-                <h3>Kontaktirajte nas</h3>
-                <p>
-                    <a href="tel:+381123456789"><i class="fas fa-phone"></i> +381 12 345 6789</a><br>
-                    <a href="mailto:office@spectravision.rs"><i class="fas fa-envelope"></i> office@spectravision.rs</a><br>
-                    <i class="fas fa-map-marker-alt"></i> Lole Ribara 1, 12000 Požarevac
-                </p>
-            </div>
-
-            <div>
-                <h3>Radno vreme</h3>
-                <p>
-                    Pon - Sub: 08:00 - 20:00<br>
-                    Nedelja: Zatvoreno
-                </p>
-            </div>
-
-            <div class="social-links">
-                <h3>Pratite nas</h3>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/profile.php?id=61580311302053&ref=pl_edit_xav_ig_profile_page_web#" target="_blank" rel="noopener noreferrer" aria-label="Facebook" width="25px" height="25px">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    
-                    <a href="https://www.instagram.com/spectravisionoptics" target="_blank" rel="noopener noreferrer" aria-label="Instagram" width="25px" height="25px">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+            <div class="footer-bottom">
+                <div class="footer-legal-links">
+                    <a href="#politika-privatnosti">Politika privatnosti</a>
+                    <span class="separator">|</span>
+                    <a href="#uslovi-koriscenja">Uslovi korišćenja</a>
+                </div>
+                <div class="copyright">
+                    © <span id="current-year">2025</span> Spectra Vision. Sva prava zadržana.
+                    <span class="design-credit">
+                        Dizajn: <a href="#vas-dizajnerski-link" target="_blank" rel="noopener noreferrer">WebDev Vrs1X</a>
+                    </span>
                 </div>
             </div>
-            
         </div>
-        
-        <div class="footer-bottom">
-            <div class="footer-legal-links">
-                <a href="#politika-privatnosti">Politika privatnosti</a>
-                <span>|</span>
-                <a href="#uslovi-koriscenja">Uslovi korišćenja</a>
-            </div>
-            
-            <div class="copyright">
-                 <span id="current-year">&copy;2025</span> Spectra Vision. Sva prava zadržana. 
-                <span class="separator">|</span> 
-                <span class="design-credit">
-                    Dizajn & Izrada: <a href="#" target="_blank" rel="noopener noreferrer">WebDev Vrs1X</a>
-                </span>
-            </div>
-        </div>
-    </div>
-</footer>
-<script src="script.js"></script>
+    </footer>
+    
+    <script src="script.js"></script>
 </body>
-
 </html>
 
 
