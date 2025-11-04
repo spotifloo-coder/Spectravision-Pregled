@@ -202,6 +202,10 @@ const navSlide = () => {
     // =======================================================
     // 4. Inicijalizacija
     // =======================================================
+
+    // =======================================================
+// 4. Inicijalizacija (Postojeći kod)
+// =======================================================
     if (slides.length > 0) {
         showSlides(1); // Prikazuje prvu sliku
         autoSlideInterval = setInterval(showSlides, intervalTime); // Pokreće automatski klizač
@@ -209,7 +213,69 @@ const navSlide = () => {
     navSlide(); // Pokreće logiku za Burger Meni
 });
 
-// 5. Automatsko ažuriranje godine
+// =======================================================
+// 5. Aktivacija Nav Linkova pri Skrolovanju (NOVI KOD)
+// =======================================================
+
+// 5.1 Dohvatanje svih sekcija koje imaju ID (ankere) i svih navigacionih linkova
+const sections = document.querySelectorAll('main section[id]');
+const navLinks = document.querySelectorAll('.nav-links li a');
+
+const observerOptions = {
+    root: null, // Gleda se vidno polje (viewport)
+    rootMargin: '0px',
+    // Procenti kada se sekcija smatra aktivnom: 
+    // Threshold 0.3 znači da je 30% sekcije vidljivo da bi se aktivirala.
+    threshold: 0.3 
+};
+
+// Funkcija koja se poziva kada sekcija uđe/izađe iz vidnog polja
+const sectionObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        const targetId = entry.target.getAttribute('id');
+        const currentLink = document.querySelector(`.nav-links a[href="#${targetId}"]`);
+        
+        // Funkcija za uklanjanje 'active' klase sa svih linkova
+        const removeActive = () => {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+        };
+
+        if (entry.isIntersecting) {
+            // Ako sekcija ulazi u vidno polje
+            
+            // 1. Ukloni active klasu sa SVIH (osim Naslovna, koja je 'index.html')
+            removeActive();
+
+            // 2. Dodaj active klasu trenutnom linku
+            if (currentLink) {
+                currentLink.classList.add('active');
+            }
+
+        } else {
+            // Ako sekcija izlazi iz vidnog polja (opcionalno, ali pomaže u čišćenju)
+            // Uklanja active klasu sa linka kada sekcija izađe (tj. kada uđe sledeća)
+            if (currentLink) {
+                currentLink.classList.remove('active');
+            }
+        }
+
+        // Dodatni Fiks: Proverava da li je korisnik skrolovan do samog vrha stranice.
+        // Ako jeste, aktiviraj Naslovnu
+        if (window.scrollY < 100) { 
+            removeActive();
+            document.querySelector('.nav-links a[href="index.html"]').classList.add('active');
+        }
+    });
+}, observerOptions);
+
+// Prijavi sve sekcije na posmatranje
+sections.forEach(section => {
+    sectionObserver.observe(section);
+});
+
+    // 6. Automatsko ažuriranje godine
 const yearSpan = document.getElementById('current-year');
 if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
