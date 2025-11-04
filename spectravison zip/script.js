@@ -56,10 +56,10 @@ document.addEventListener('DOMContentLoaded', function() {
         dots.forEach(dot => dot.classList.remove("active-dot"));
 
         if (slides.length > 0) {
-             slides[slideIndex - 1].style.display = "block";
-             if (dots.length > 0) {
-                 dots[slideIndex - 1].classList.add("active-dot"); 
-             }
+            slides[slideIndex - 1].style.display = "block";
+            if (dots.length > 0) {
+                dots[slideIndex - 1].classList.add("active-dot"); 
+            }
         }
     }
 
@@ -75,10 +75,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function resetAutoSlide() {
         clearInterval(autoSlideInterval);
-        autoSlideInterval = setInterval(showSlides, intervalTime);
+        // Da ne bi odmah pokrenuo, već sa malim delay-em
+        setTimeout(() => {
+            autoSlideInterval = setInterval(showSlides, intervalTime);
+        }, 100); 
     }
 
     // Dodela globalnih funkcija globalnom objektu (window)
+    // Ove su potrebne jer se pozivaju direktno iz onclick atributa u HTML-u
     window.plusSlides = plusSlides;
     window.currentSlide = currentSlide;
     
@@ -133,16 +137,17 @@ document.addEventListener('DOMContentLoaded', function() {
             const formData = new FormData(form);
 
             try {
-                const response = await fetch('send_email.php', {
+                // Poziva send_email.php
+                const response = await fetch('send_email.php', { 
                     method: 'POST',
                     body: formData
                 });
 
                 if (!response.ok) {
-                     // Baca grešku u zavisnosti od statusa (npr. 404, 500)
-                     throw new Error(`HTTP greška! Status: ${response.status}`);
+                    throw new Error(`HTTP greška! Status: ${response.status}`);
                 }
 
+                // PHP vraća JSON odgovor (uspeh ili neuspeh)
                 const result = await response.json();
 
                 if (result.success) {
@@ -177,3 +182,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     navSlide(); // Pokreće logiku za Burger Meni
 });
+
+// 5. Automatsko ažuriranje godine
+const yearSpan = document.getElementById('current-year');
+if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+}
