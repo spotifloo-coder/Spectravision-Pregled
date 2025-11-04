@@ -719,6 +719,34 @@ footer a:hover {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* ========================================= */
+/* === WHATSAPP FLOAT DUGME === */
+/* ========================================= */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366; /* WhatsApp zelena */
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    z-index: 999; /* Mora biti iznad svega */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    border-bottom: none; /* Uklonite liniju koju je definisao footer a:hover */
+}
+
 /* Responsive prilagođavanje Modala */
 @media (max-width: 600px) {
     .modal-content {
@@ -905,7 +933,16 @@ footer a:hover {
         margin-top: 5px;
         line-height: 1.5;
     }
+    /* WHATSAPP DUGME */
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 24px;
+    }
 }
+
 
 
 
