@@ -219,12 +219,8 @@ main {
 .mySlides img {
     width: 100%; 
     height: 100%; 
-    object-fit: cover; 
+    object-fit: fill; 
     filter: brightness(0.7); /* Još malo potamnjena slika za kontrasniji tekst/streice */
-}
-
-.slika2{
-    margin-top: 100px;
 }
 
 /* Navigacione strelice (Prev & Next) */
