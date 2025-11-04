@@ -183,9 +183,7 @@ main {
     text-align: center;
 }
 
-.dugme-poziv{
-    margin-top: 20px;
-}
+
 /* ======================================================= */
 /* === HERO SEKCIJA (KLIZAČ I OPIS) === */
 /* ======================================================= */
@@ -782,6 +780,10 @@ footer a:hover {
         display: block; /* Prikazuje burger ikonu */
     }
     
+    .dugme-poziv{
+        margin-top: 20px;
+    }
+
     /* NAV LINKOVI (Mobilni Meni) */
     .nav-links {
         flex-direction: column;
